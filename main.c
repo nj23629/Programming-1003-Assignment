@@ -1,7 +1,7 @@
 #include <stdio.h>
-int main {
+int main () {
     
-printf("git commit")
+printf(" Git COMMIT\n");
 
 return 0;
 }

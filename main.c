@@ -4,35 +4,38 @@ int main ()
 
 char e;
 int n; 
-char E;
-char D;
+int k;
 
-char phrase[2];
+
+char phrase[80];
 printf("Enter a phrase\n");
 scanf("%s", phrase);
 
 
 printf("Please choose a rotational cipher option:\n");
-printf("To encrypt enter: E \n");
-printf("To decrypt enter: D\n");
+printf("To encrypt enter: 1 \n");
+printf("To decrypt enter: 2\n");
 
-scanf(" %c", &e);
+scanf(" %d", &n);
 
-for(e==E)
-{ printf("encryption selected\n");
-
+if(n==1){
+    printf("Encryption selected:\n");
+    
+    
+}
+if(n==2){
+    printf("Decryption selected:\n");
+}
+if(n<1, n>2){
+    printf("Error!! Not an available option >:(");
 }
 
-for(e==D)
-{ printf("decryption selected\n");
 
-}
 
    
 
 return 0;
 }
-
 
 
 

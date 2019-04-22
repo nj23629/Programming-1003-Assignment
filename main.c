@@ -2,9 +2,8 @@
 int main () 
 { // 
 
-char e;
 int n; 
-int k;
+int k;// k is the number being used for rotational cipher
 
 
 char phrase[80];
@@ -22,11 +21,32 @@ scanf(" %d", &n);
 
 if(n==1){
     printf("Rotational encryption selected of (%s):\n", phrase);
+    printf("Enter an encryption number:\n");
+    scanf(" %d", &k);
+    char encryption[80], phrase;
+    int i;
+    for (i=0; encryption[i] != '\0'; ++i)
+    {
+        phrase= encryption[i];
+    if (phrase >= 'A' && phrase <= 'Z') 
+    {
+        phrase= encryption + k;
+    if (phrase > 'Z') 
+    {
+        phrase= encryption - 'Z' + 'A'-1;
+    }
+      encryption[i]= phrase;
+    }
+    }
+    printf("The encryption is: %s\n", encryption);
+    
     
 }
 
 if(n==2){
     printf("Rotational decryption selected of (%s):\n", phrase);
+    printf("Enter an decryption number:\n");
+    scanf(" %d", &k);
 }
 
 

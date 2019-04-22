@@ -8,31 +8,45 @@ int k;
 
 
 char phrase[80];
-printf("Enter a phrase\n");
-scanf("%s", phrase);
+printf("Enter a phrase - using CAPS\n");
+scanf(" %s", phrase);
 
 
-printf("Please choose a rotational cipher option:\n");
-printf("To encrypt enter: 1 \n");
-printf("To decrypt enter: 2\n");
+printf("Please choose rotational or substitution cipher option:\n");
+printf("To encrypt using rotation cipher enter: 1 \n");
+printf("To decrypt using rotation cipher enter: 2\n");
+printf("To encrypt using substitution cipher enter: 3\n");
+printf("To decrypt using substitution cipher enter: 4\n");
 
 scanf(" %d", &n);
 
 if(n==1){
-    printf("Encryption selected:\n");
-    
+    printf("Rotational encryption selected of (%s):\n", phrase);
     
 }
+
 if(n==2){
-    printf("Decryption selected:\n");
+    printf("Rotational decryption selected of (%s):\n", phrase);
 }
-if(n<1, n>2){
+
+
+if(n==3){ 
+    printf("Subsitution encryption selected of (%s):\n", phrase);
+}
+
+
+if(n==4){
+    printf("Substitution decryption selected of (%s):\n", phrase);  
+}
+
+if(n<1, n>4){
     printf("Error!! Not an available option >:(");
 }
 
 
 
    
+
 
 return 0;
 }
@@ -42,6 +56,5 @@ return 0;
 
 
 
-
-// from document e(x)= m + k (%26)- due to 26 letters in alphabet e meaning encryption
+// from document hmm e(x)= m + k (%26)- due to 26 letters in alphabet e meaning encryption
 // from document d (c) = c-k (%26)

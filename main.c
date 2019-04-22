@@ -9,7 +9,7 @@ int k;
 
 char phrase[80];
 printf("Enter a phrase - using CAPS\n");
-scanf(" %s", phrase);
+gets(phrase);
 
 
 printf("Please choose rotational or substitution cipher option:\n");
@@ -50,11 +50,3 @@ if(n<1, n>4){
 
 return 0;
 }
-
-
-
-
-
-
-// from document hmm e(x)= m + k (%26)- due to 26 letters in alphabet e meaning encryption
-// from document d (c) = c-k (%26)

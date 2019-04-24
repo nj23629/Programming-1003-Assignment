@@ -33,7 +33,7 @@ if (n == 1)
       scanf (" %d", &k);	// scanf allows user to input rotational number
       
 			
-      for (j = 0; phrase[j] != '\0'; ++j)	// for loop initialised-  
+      for (j = 0; phrase[j] != '\0';)	// for loop initialised-  
 	{
 	  
 MSG = phrase[j];
@@ -53,7 +53,8 @@ MSG = MSG - 'Z' + 'A' - 1;
 	      
 phrase[j] = MSG;	// brings back phrase=MSG which is then used to print to screen
 	    }
-	
+	    
+	j++;// for j plus one each cycle of loop
 }
       
 printf ("The encryption is: %s\n", phrase);	// prints to screen with the encrypted message
@@ -71,7 +72,7 @@ printf ("Enter an decryption number:\n");
 scanf (" %d", &k);
       
       
-for (j = 0; phrase[j] != '\0'; ++j) // [i] takes each individual letter into  consideration when using cipher
+for (j = 0; phrase[j] != '\0';) // [i] takes each individual letter into  consideration when using cipher
 	
 	{
 	  
@@ -92,7 +93,7 @@ MSG = MSG + 'Z' - 'A' + 1;
 	      
 phrase[j] = MSG;	// 
 	    }
-	
+	j++;// for j plus one each cycle of for loop
 }
       
 printf ("The decryption is: %s\n", phrase);	// prints to screen with the decrypted message

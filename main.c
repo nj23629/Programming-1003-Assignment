@@ -83,12 +83,12 @@ if (MSG >= 'A' && MSG <= 'Z')
 	    
 	    {
 	      
-MSG = MSG - k;	// used to minus a number of letters to decrypt
-	      if (MSG > 'Z')
+MSG = MSG - k;	
+	      if (MSG < 'A')
 		
 		{
 		  
-MSG = MSG + 'Z' - 'A' - 1;	// opposite to encryption by swapping addition and subtraction signs
+MSG = MSG + 'Z' - 'A' + 1;	
 		}
 	      
 phrase[j] = MSG;	// 

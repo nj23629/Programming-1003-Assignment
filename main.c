@@ -5,7 +5,8 @@ main ()				// main area of code everything initialised here is present inside lo
   
  
 int n;			// initialises n the number used to select option
-  int k;			// k is the number being used for rotational cipher
+int k;			// k is the number being used for rotational cipher
+int j;          // initialises j which is used in rotationl cipher
   
  
 char phrase[80], MSG;	// intialises phrase that can also be noted as MSG(Message)
@@ -31,7 +32,7 @@ if (n == 1)
       printf ("Enter an encryption number:\n");	// prints to screen instructing user to select a number
       scanf (" %d", &k);	// scanf allows user to input rotational number
       
-int j;			// initialising j
+			
       for (j = 0; phrase[j] != '\0'; ++j)	// for loop initialised-  
 	{
 	  
@@ -69,10 +70,8 @@ printf ("Enter an decryption number:\n");
       
 scanf (" %d", &k);
       
- 
-int j;
       
-for (j = 0; phrase[j] != '\0'; ++j)
+for (j = 0; phrase[j] != '\0'; ++j) // [i] takes each individual letter into  consideration when using cipher
 	
 	{
 	  

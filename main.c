@@ -1,4 +1,6 @@
 #include <stdio.h>		// standard line to begin code
+#include <stdlib.h>// allows the use of malloc 
+#include <string.h>// allows use of strlen
 
 int main ()				// main area of code everything initialised here is present inside loops and statements
 {

@@ -1,6 +1,6 @@
 #include <stdio.h>		// standard line to begin code
-#include <stdlib.h>// allows the use of malloc 
-#include <string.h>// allows use of strlen
+#include <stdlib.h>// allows the use of malloc (malloc allocates requested memory and returns a pointer to it)
+#include <string.h>// allows use of strlen (strlen counts the length of the string)
 
 int main ()				// main area of code everything initialised here is present inside loops and statements
 {
@@ -118,7 +118,7 @@ if (n == 3)
       }
       
       int p;
-      int q= strlen (phrase);
+      int q= strlen (phrase); // counts length of phrase
       char *ephrase = (char *) malloc (sizeof (char) * q);
 
 

@@ -1,3 +1,5 @@
+// Rotational and Substitution cipher
+
 #include <stdio.h>		// standard line to begin code
 #include <stdlib.h>		// allows the use of malloc (malloc allocates requested memory and returns a pointer to it)
 #include <string.h>		// allows use of strlen (strlen counts the length of the string)

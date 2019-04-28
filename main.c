@@ -8,17 +8,17 @@ main ()				// main area of code everything initialised here is present inside lo
   
  
  
-char substitutionkey[26];	// initialises substitutionkey used in substitution cipher
+char substitutionkey[26];	// initialises substitutionkey used in substitution cipher with 26 characters
   int n;			// initialises n the number used to select option
   int k;			// k is the number being used for rotational cipher
   int j;			// initialises j which is used in rotationl cipher
   int p;            // initialises p which is used in substitution cipher
-  int f;
  
  
  
  
-char phrase[80], MSG;	// intialises phrase that can also be noted as MSG(Message)
+ 
+char phrase[1024], MSG;	// intialises phrase that can also be noted as MSG(Message) [1024] meaning 1024 characters in length
   printf ("Enter a phrase - using CAPS\n");	// prints to screen "Enter a phrase- using caps" this instructs user
   gets (phrase);		// gets statement used to allow whitespace in text inputted above
   
@@ -49,7 +49,7 @@ if (n == 1)
     {				// this if statement is initialised if the number 1 is inputted above
       printf ("Rotational encryption selected of (%s):\n", phrase);	// prints to screen telling user rotational encryption has been selected
       printf ("Enter an encryption number:\n");	// prints to screen instructing user to select a number
-      scanf (" %d", &k);	// scanf allows user to input rotational number
+      scanf (" %d", &k);	// scanf allows user to input rotational number placing the value to k
       
  
 for (j = 0; phrase[j] != '\0';)	// for loop initialised beginnging at j=0, does not count white space
@@ -57,18 +57,19 @@ for (j = 0; phrase[j] != '\0';)	// for loop initialised beginnging at j=0, does 
 	  
  
  
-MSG = phrase[j]; // 
+MSG = phrase[j]; // intialises MSG to phrase[j] taking individual letter into consideration by assinging an integer value [j]
 	  
  
  
  
-if (MSG >= 'A' && MSG <= 'Z')	//
+if (MSG >= 'A' && MSG <= 'Z')	// follows statement if letters are between A-Z - ASCII numbers of A=65 and Z=90
 	    {
 	      
  
  
 MSG = MSG + k;	// uses the encryption number k to select how many letter spots have moved
-	      if (MSG > 'Z')
+
+	      if (MSG > 'Z') // follows if statement if the letters of MSG are greater than Z this makes
 		
  
  
@@ -76,7 +77,7 @@ MSG = MSG + k;	// uses the encryption number k to select how many letter spots h
 		  
  
  
-MSG = MSG - 'Z' + 'A' - 1;
+MSG = MSG - 'Z' + 'A' - 1;// to account for the value of MSG being greater than Z : Z is subtracted and A is added plus one.
 		
  
  
@@ -84,7 +85,7 @@ MSG = MSG - 'Z' + 'A' - 1;
 	      
  
  
-phrase[j] = MSG;	// brings back phrase=MSG which is then used to print to screen
+phrase[j] = MSG;	// brings back phrase=MSG which is converted from numerical to letter form
 	    }
 	  
  
@@ -106,31 +107,31 @@ if (n == 2)
     
  
     {				//this if statement is initialised if the number 2 is inputted above
-      printf ("Rotational decryption selected of (%s):\n", phrase);
+      printf ("Rotational decryption selected of (%s):\n", phrase); // prints selection of option to screen
       
  
  
-printf ("Enter an decryption number:\n");
+printf ("Enter an decryption number:\n");// prompts user to enter a decryption number
       
  
  
-scanf (" %d", &k);
+scanf (" %d", &k);// scanf allows user to input rotational number placing the value to k
       
  
  
  
-for (j = 0; phrase[j] != '\0';)	// [j] takes each individual letter into  consideration when using cipher
+for (j = 0; phrase[j] != '\0';)	// [j] takes each individual letter into  consideration in a number format which the ASCII values are when using cipher, not counting white space
 	
 	{
 	  
  
  
-MSG = phrase[j];
+MSG = phrase[j];// intialising the message equal to phrase taking each letter into consideration
 	  
  
  
  
-if (MSG >= 'A' && MSG <= 'Z')
+if (MSG >= 'A' && MSG <= 'Z')// similar to encryption- means letters are between A-Z meaning the calculation is easily just - k
 	    
  
  
@@ -138,10 +139,10 @@ if (MSG >= 'A' && MSG <= 'Z')
 	      
  
  
-MSG = MSG - k;
+MSG = MSG - k; // makes the set message equal to the message minus decryption value k
 	      
  
-if (MSG < 'A')
+if (MSG < 'A') // if statement is address if MSG is less than A
 		
  
  
@@ -149,14 +150,14 @@ if (MSG < 'A')
 		  
  
  
-MSG = MSG + 'Z' - 'A' + 1;
+MSG = MSG + 'Z' - 'A' + 1; // To account for the value being less than A the value of Z is added minusing A then adding one- opposite of encryption
 		
  
 }
 	      
  
  
-phrase[j] = MSG;	// 
+phrase[j] = MSG;	// reintialising the value of phrase[j] to MSG back to letter form rather than numerical
 	    }
 	  
  
@@ -179,10 +180,10 @@ if (n == 3)
       printf ("Substitution encryption selected of (%s):\n", phrase);
       
  
-printf ("Enter a substitution alphabet key:\n");
+printf ("Enter a substitution alphabet key:\n"); // prompts user to enter a substitution key by printing this to screen
       
  
-scanf ("%s", substitutionkey);
+scanf ("%s", substitutionkey);// scanf statement picks up the key inputted and allocates it to substitutionkey
       
  
 int f = strlen (substitutionkey);// counts the length of substitutionkey which must be 26 characters
@@ -191,17 +192,17 @@ int f = strlen (substitutionkey);// counts the length of substitutionkey which m
 int q = strlen (phrase); // counts the length of the phrase
       
  
-if (f % 26 != 0) 
+if (f % 26 != 0) // if the key is less than or greater than 26 the following if statement runs
 	
  
 	{
 	  
  
 printf 
-	    ("Make sure to have a 26 key alphabet not using same letter twice");
+	    ("Make sure to have a 26 key alphabet not using same letter twice");// tells user that the value inputted doesnt meet guidelines
 	  
  
-return 0;
+return 0;// ends program
 	
  
 }
@@ -209,23 +210,23 @@ return 0;
  
  
  
-char *encryptionphrase = (char *) malloc (sizeof (char) * q);
+char *encryptionphrase = (char *) malloc (sizeof (char) * q);// allocates requested memory returing a pointer to it
       
  
  
  
-for (int p = 0; p < q; p++)
+for (int p = 0; p < q; p++)// for loop of increments of p as p<q starting at p=0
 	
  
 	{
 	  
  
  
-int b = (phrase[p]) - 'A';
+int b = (phrase[p]) - 'A';// initialises as ASCII number taking from letter form to numerical form
 	  
  
  
-if (b >= 0 && b < 26)
+if (b >= 0 && b < 26)// if statement addressed as b is greater than 0 and less than 26
 	    
  
 	    {
@@ -233,7 +234,7 @@ if (b >= 0 && b < 26)
  
  
  
-encryptionphrase[p] = substitutionkey[b];
+encryptionphrase[p] = substitutionkey[b];// initialising numerical form of both encryption and key
 	    
  
  
@@ -248,7 +249,7 @@ encryptionphrase[p] = substitutionkey[b];
 	      
  
  
-encryptionphrase[p] = phrase[p];
+encryptionphrase[p] = phrase[p];// intialises encrypted phrase to phase
 	    
  
  
@@ -262,7 +263,7 @@ encryptionphrase[p] = phrase[p];
  
  
  
-printf ("The encryption is: %s\n", encryptionphrase);
+printf ("The encryption is: %s\n", encryptionphrase);// prints the encrpyted phrase to screen
     
  
  
@@ -272,7 +273,7 @@ printf ("The encryption is: %s\n", encryptionphrase);
  
  
  
-if (n == 4)
+if (n == 4)// if the value n=4 is selected this statement is addressed
     
  
     {
@@ -282,14 +283,14 @@ if (n == 4)
  
  
  
-int c (char substitutionkeykey[26], char dt) 
+int c (char substitutionkeykey[26], char dt) // makes substitutionkey and dt into integer
       {				
 	
 	
  
  
  
-for (int p = 0; p < 26; p++)
+for (int p = 0; p < 26; p++)// for loop for increments of p, starting at p=0 and ends at p is less than 26
 	  
  
 	  {
@@ -297,7 +298,7 @@ for (int p = 0; p < 26; p++)
  
  
  
-if (substitutionkey[p] == dt)
+if (substitutionkey[p] == dt)// if the substitution and encryption is same will return value p;
 	      
  
 	      {			
@@ -314,7 +315,7 @@ return p;
 	
  
  
-return 0;
+return 0;// ends program
       
  
  
@@ -323,22 +324,39 @@ return 0;
  
  
  
-printf ("Substitution decryption selected of (%s):\n", phrase);
+printf ("Substitution decryption selected of (%s):\n", phrase);// prints to screen selected option
       
  
  
  
-printf ("Enter a substitution alphabet key:\n");
+printf ("Enter a substitution alphabet key:\n");// prompts user to enter an alphabet key
       
  
  
-scanf ("%s", substitutionkey);
+scanf ("%s", substitutionkey);// collects the key and stores it in substitutionkey
+
+ int f = strlen (substitutionkey);// counts the length of substitutionkey which must be 26 characters
+      
+ 
+ if (f % 26 != 0)// ensures the key is exactly 26 letters long
+    
+ 
+    {
       
  
  
  
  
-int q = strlen (phrase);
+printf 
+	("Make sure to have a 26 key alphabet not using same letter twice");// if not 26 letters tells user the error 
+ 
+
+      
+ return 0;
+
+ 
+ 
+int q = strlen (phrase);// intialising an integer to the phrase
       
  
  
@@ -347,12 +365,11 @@ int q = strlen (phrase);
  
  
  
-char *decryptedphrase = 
-	(char *) malloc (sizeof (char) * q);
+char *decryptedphrase =  (char *) malloc (sizeof (char) * q);// allocates requested memory to pointer
       
  
  
-for (int p = 0; p < q; p++)
+for (int p = 0; p < q; p++)// for loop as long as p<q starting at p=0 and incrementing by 1
 	
  
 	{
@@ -360,12 +377,12 @@ for (int p = 0; p < q; p++)
  
  
  
-int b = (phrase[p]) - 'A';
+int b = (phrase[p]) - 'A';// sets numerical values to the phrase to use ASCII values 
 	  
  
  
  
-if (b >= 0 && b < 26)
+if (b >= 0 && b < 26)// follows statement if value of b is greater than 0 and less than 26
 	    
  
 	    {
@@ -373,12 +390,12 @@ if (b >= 0 && b < 26)
  
  
  
-int b = c (substitutionkey, phrase[p]);
+int b = c (substitutionkey, phrase[p]);// makes into integer values b of the function c
 	      
  
  
  
-decryptedphrase[p] = 'A' + b;
+decryptedphrase[p] = 'A' + b;// integer values of the decrypted phrase
 	    
  
  
@@ -393,7 +410,7 @@ decryptedphrase[p] = 'A' + b;
 	      
  
  
-decryptedphrase[p] = phrase[p];
+decryptedphrase[p] = phrase[p];//making the decryptedphrase = phrase begun with making the decyrption happen
 	    
  
  
@@ -407,39 +424,17 @@ decryptedphrase[p] = phrase[p];
  
  
  
-printf ("The decrypted text is: \n%s", decryptedphrase);
+printf ("The decrypted text is: %s\n", decryptedphrase);// prints to screen the decrypted text
       
  
  
  
-return 0;
+return 0;// ends program
     
  
  
 }
   
- 
- 
-if (f % 26 != 0)
-    
- 
-    {
-      
- 
- 
- 
- 
-printf 
-	("Make sure to have a 26 key alphabet not using same letter twice");
-      
- 
- 
- 
-return 0;
-    
- 
- 
-}
   
  
 if (n < 1, n > 4)
@@ -457,7 +452,7 @@ if (n < 1, n > 4)
  
  
  
-return 0;
+return 0;// ends program
 
  
 }
